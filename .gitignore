@@ -1,1 +1,8 @@
 /target
+
+/client/.DS_Store
+/client/Thumbs.db
+/client/.aleph/
+/client/dist/
+
+.env

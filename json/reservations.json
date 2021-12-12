@@ -1,0 +1,9 @@
+{
+    "date": "12-12-12",
+    "start": "1500",
+    "stop": "1700",
+    "user_id": "<insert user _id>",
+    "group_members": [
+        "alpha", "beta", "gamma", "delta"
+    ]
+}

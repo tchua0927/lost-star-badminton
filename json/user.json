@@ -1,0 +1,16 @@
+{
+    "username": "fbar_123",
+    "fname": "Foo",
+    "lname": "Bar",
+    "password": "hashed_pwd",
+    "contact": {
+        "email": "foo@bar.com",
+        "phone": "123-456-7890"
+    },
+    "membership": [
+        {
+            "id": "0123456",
+            "location": "Sunnyvale"
+        }
+    ]
+}
