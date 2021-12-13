@@ -9,7 +9,7 @@
     },
     "membership": [
         {
-            "id": "0123456",
+            "id": 12345,
             "location": "Sunnyvale"
         }
     ]

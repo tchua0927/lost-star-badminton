@@ -1,7 +1,10 @@
-use serde::{Deserialize, Serialize};
+// use serde::{Deserialize, Serialize};
 
 
-#[derive(Debug, Deserialize, Serialize)]
-pub struct Court {
+// #[derive(Debug, Deserialize, Serialize)]
+// pub struct Court {
     
-}
+// }
+
+mod user;
+mod location;
