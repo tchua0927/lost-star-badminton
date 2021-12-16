@@ -1,11 +1,22 @@
 
 use serde::{Deserialize, Serialize};
-use chrono::{Weekday, NaiveTime};
+use mongodb::bson::DateTime;
 
 use crate::data::models::court::Court;
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Address {
+pub enum Weekday {
+    Sunday,
+    Monday,
+    Tuesday, 
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Address {
     addr_num: i32,
     street: String,
     apt_num: Option<i32>,
@@ -16,13 +27,13 @@ struct Address {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct OpenClosePair {
-    open: NaiveTime,
-    close: NaiveTime
+pub struct OpenClosePair {
+    open: DateTime,
+    close: DateTime
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Week_Day {
+pub struct DayTime {
     day: Weekday,
     times: Vec<OpenClosePair>,
 }
@@ -32,6 +43,6 @@ struct Week_Day {
 pub struct Location {
     pub address: Address,
     pub courts: Vec<Court>,
-    pub schedule: Vec<Week_Day>
+    pub schedule: Vec<DayTime>
     
 }

@@ -1,8 +1,9 @@
 use serde::{Deserialize, Serialize};
-use chrono::{Date,NaiveTime, Local};
+// use chrono::{Date,NaiveTime, Local};
+use mongodb::{bson::DateTime};
 
 #[derive(Debug, Deserialize, Serialize)]
-enum CourtType {
+pub enum CourtType {
     Open,
     Challenge,
     Training,
@@ -10,13 +11,12 @@ enum CourtType {
 
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Reservation {
+pub struct Reservation {
     id: i32,
     email: String,
     court_id: i32,
-    date: Date<Local>,
-    start: NaiveTime,
-    end: NaiveTime,
+    time: DateTime,
+    duration: i32,
     paid: bool,
 }
 
@@ -26,6 +26,4 @@ pub struct Court {
     pub id: i32,
     pub court_type: CourtType,
     pub reservation: Vec<Reservation>,
-
-
 }

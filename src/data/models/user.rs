@@ -1,18 +1,18 @@
 use serde::{Deserialize, Serialize};
-use chrono::{Date, Local};
+use mongodb::{bson::DateTime};
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Contact {
+pub struct Contact {
     pub email: String,
     pub phone: Option<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Membership {
+pub struct Membership {
     id: i32,
     location: Vec<String>,
-    start: Date<Local>,
-    exp: Option<Date<Local>>,
+    start: DateTime,
+    exp: Option<DateTime>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

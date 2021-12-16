@@ -9,7 +9,7 @@ async fn hello() -> impl Responder {
 #[actix_web::main]
 async fn main()  -> std::io::Result<()>{
     dotenv::dotenv().ok();
-    std::env::set_var("RUST_LOGG", "rsvp=debug");
+    std::env::set_var("RUST_LOG", "rsvp=debug");
 
     HttpServer::new(move || 
         App::new() 
