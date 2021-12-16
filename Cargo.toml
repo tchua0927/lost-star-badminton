@@ -12,6 +12,7 @@ derive_more = "0.99.17"
 dotenv = "0.15.0"
 futures = "0.3.18"
 serde = { version = "1", features = ["derive"] }
+djangohashers = "1.5.1"
 
 # mongodb = "2.0.2"
 [dependencies.mongodb]
@@ -20,6 +21,3 @@ default-features = false
 features = ["async-std-runtime", "bson-uuid-0_8", "bson-chrono-0_4"]
 # features = ["async-std-runtime"]
 
-[dependencies.passwords]
-version = "3.1.8"
-features = ["crypto"]

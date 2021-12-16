@@ -1,7 +1,7 @@
 
 use serde::{Deserialize, Serialize};
 use mongodb::{bson::DateTime};
-use passwords::{hasher};
+use djangohashers::{ check_password,make_password};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Contact {
@@ -40,13 +40,12 @@ impl User {
         membership: Option<Membership>
 
     ) -> Self {
-        let salt = hasher::gen_salt();
-        let hashed_pwd = hasher::bcrypt(10, &salt, &password).unwrap();
 
+        let hashed_pwd = make_password(password.as_str());
         User {
             contact: contact,
             // password: hashed_pwd,
-            password: password,
+            password: hashed_pwd,
             fname: fname,
             lname: lname,
             username: username,
