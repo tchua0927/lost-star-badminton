@@ -3,7 +3,7 @@ mod data;
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+    HttpResponse::Ok().json("Hello world!")
 }
 
 #[actix_web::main]
