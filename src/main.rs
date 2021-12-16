@@ -19,14 +19,16 @@ async fn main()  -> std::io::Result<()>{
 
     let client = db::connect().await;
 
-    println!("Listening on port 8080");
+    // println!("Listening on port 8080");
+    println!("Listening on port 3000");
     HttpServer::new(move || 
         App::new() 
         .wrap(Logger::default())
         .data(client.clone())
         .service(hello)
     )
-    .bind("127.0.0.1:8080")?
+    // .bind("127.0.0.1:8080")?
+    .bind("127.0.0.1:3000")?
     .run()
     .await
 }
