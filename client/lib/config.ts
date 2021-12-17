@@ -1,0 +1,1 @@
+export const DUMMY_USER = 'http://localhost:8080/api/dummy_user';

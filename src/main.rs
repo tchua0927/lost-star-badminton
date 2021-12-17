@@ -4,7 +4,7 @@ mod service;
 mod errors;
 
 
-
+use actix_cors::Cors;
 use actix_web::{web, web::Json,App,HttpResponse, HttpServer, Responder, get, middleware::Logger, HttpRequest};
 use futures::{stream::TryStreamExt};
 use mongodb::bson::DateTime;
@@ -56,14 +56,15 @@ async fn main()  -> std::io::Result<()>{
     HttpServer::new(move || 
         App::new() 
         .wrap(Logger::default())
+        .wrap(Cors::permissive())
         .data(client.clone())
         .service(hello)
-        // .service(
-        //     web::scope("/api").route(
-        //         "/dummy_user",
-        //         web::get().to(dummy_api)
-        //     )
-        // )
+        .service(
+            web::scope("/api").route(
+                "/dummy_user",
+                web::get().to(dummy_api)
+            )
+        )
     )
     .bind("127.0.0.1:8080")?
     // .bind("127.0.0.1:3000")?

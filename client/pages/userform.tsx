@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
+import '../style/form.css'
 
 export default function UserForm() {
     
