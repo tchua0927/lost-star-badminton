@@ -11,10 +11,10 @@ pub struct Contact {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Membership {
-    id: i32,
-    location: Vec<String>,
-    start: DateTime,
-    exp: Option<DateTime>,
+    pub id: i32,
+    pub location: Vec<String>,
+    pub start: DateTime,
+    pub exp: Option<DateTime>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
