@@ -1,17 +1,24 @@
 mod data;
-// mod db;
+mod db;
 mod service;
 // mod errors;
 
 #[macro_use] extern crate rocket;
+extern crate r2d2;
 
 // use actix_cors::Cors;
 // use actix_web::{web, web::Json,App,HttpResponse, HttpServer, Responder, get, middleware::Logger, HttpRequest};
 // use futures::{stream::TryStreamExt};
 use rocket::serde::json::Json;
+use rocket_cors::CorsOptions;
+use std::error::Error;
 
-use mongodb::bson::DateTime;
+use mongodb::{bson::DateTime, Database};
 use data::models::user::{User,Contact,Membership};
+
+struct AppDataPool {
+    mongo: Database
+}
 
 
 #[get("/")]
@@ -51,18 +58,20 @@ async fn dummy_api() -> Json<User>{
 // #[actix_web::main]
 #[rocket::main]
 // async fn main()  -> std::io::Result<()>{
-async fn main() {
+async fn main() -> Result<(), Box<dyn Error>>{
     dotenv::dotenv().ok();
     std::env::set_var("RUST_LOG", "rsvp=debug");
 
-    // let client = db::connect().await;
+    let client = db::connect().await;
 
     println!("Listening on port 8000");
     // println!("Listening on port 8080");
     // println!("Listening on port 3000");
     let _ = rocket::build()
+        // .manage(database)
         .mount("/", routes![hello])
         .mount("/api", routes![dummy_api])
+        .attach(CorsOptions::default().to_cors()?)
         .launch()
         .await;
     // HttpServer::new(move || 
@@ -82,4 +91,5 @@ async fn main() {
     // .bind("127.0.0.1:3000")?
     // .run()
     // .await
+    Ok(())
 }

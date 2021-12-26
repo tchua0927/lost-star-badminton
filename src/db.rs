@@ -1,6 +1,6 @@
-use actix_web::{error::ResponseError, HttpResponse};
+// use actix_web::{error::ResponseError, HttpResponse};
 use dotenv;
-use mongodb::{Client, Collection};
+use mongodb::{Client};
 
 // pub async fn connect() -> mongodb::error::Result<Client> {
 pub async fn connect() -> Client {
