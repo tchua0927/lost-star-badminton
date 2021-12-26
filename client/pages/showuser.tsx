@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axiod from "axiod";
 import "../style/userdata.css"
 
-const url = "http://localhost:8080/api/dummy_user";
+// const url = "http://localhost:8080/api/dummy_user";
+const url = "http://localhost:8000/api/dummy_user";
 
 export default function ShowUser() {
 
