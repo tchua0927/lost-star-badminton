@@ -20,7 +20,8 @@ async fn hello() -> impl Responder {
 async fn dummy_api(req : HttpRequest) -> Result<Json<User>, errors::UserError> {
     let dummy_contact = Contact {
         email: "foo@bar.com".to_string(),
-        phone: Some("123-456-7890".to_string()),
+        // phone: Some("123-456-7890".to_string()),
+        phone: None
     };
     
     let dummy_membership = Membership {
