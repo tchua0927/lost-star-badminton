@@ -34,23 +34,48 @@ export default function ShowUser() {
             </header>
 
             <div className="user-container"> 
-                <h5 className="info-item">{userData.username}</h5>
-                <h5 className="info-item">{userData.fname}</h5>
-                <h5 className="info-item">{userData.lname}</h5>
-                {userData.username && <h5 className="info-item">{userData.username}</h5>}
+
+            {/* TODO: WORK ON CONTROL FLOW */}
+                {/* <h5 className="info-item">{userData.fname}</h5> */}
+                {/* <h5 className="info-item">{userData.lname}</h5> */}
+                {userData.fname} 
+                <br />
+                {userData.lname}
+                <br />
+                {/* {userData.username && <h5 className="info-item">{userData.username}</h5>} */}
+                {userData.username && userData.username}
+                <br />
                 {
                     userData.contact && 
-                    Object.keys(userData.contact).map((key,i) => (
-                        userData.contact[key] &&
-                        <h5 className="info-item" key={i}>{userData.contact[key]}</h5>
-                    ))
+                    (userData.contact.email &&
+                    (
+                        userData.contact.phone &&
+                        userData.contact.phone
+                    )
+                    )
+                    // Object.keys(userData.contact).map((key,i) => (
+                    //     userData.contact[key] &&
+                    //     // <h5 className="info-item" key={i}>{userData.contact[key]}</h5>
+                    // ))
+                }
+                {
+                    userData.membership &&
+                    
+                    <h5 className="info-item" >{
+                        userData.membership.id
+                        } <br />
+                        {userData.membership.location[0]}</h5>
+                    
                 }
                 {/* {
-                //     userData.membership && 
-                //     Object.keys(userData.membership).map((key,i) => (
-                //         <h5 className="info-item" key={i}>{userData.membership[key]}</h5>
-                //     ))
-                // }
+                    userData.membership && 
+                    Object.keys(userData.membership).map((key,i) => (
+                        userData.membership[key] &&
+                        <h5 className="info-item" key={i}>{userData.membership[key]}</h5>
+                        // <h5 className="info-item" key={i}>{i}</h5>
+
+                    ))
+                } */}
                 {/* {userData.membership && <h5 className="info-item">{userData.membership}</h5>} */}
 
             </div>

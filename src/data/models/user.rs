@@ -14,6 +14,7 @@ pub struct Membership {
     pub id: i32,
     pub location: Vec<String>,
     pub start: DateTime,
+    // pub start: String,
     pub exp: Option<DateTime>,
 }
 

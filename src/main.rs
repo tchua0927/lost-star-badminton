@@ -20,14 +20,15 @@ async fn hello() -> impl Responder {
 async fn dummy_api(req : HttpRequest) -> Result<Json<User>, errors::UserError> {
     let dummy_contact = Contact {
         email: "foo@bar.com".to_string(),
-        // phone: Some("123-456-7890".to_string()),
-        phone: None
+        phone: Some("123-456-7890".to_string()),
+        // phone: None
     };
     
     let dummy_membership = Membership {
         id: 54321,
         location: vec!["Stanford".to_owned(), "Berkeley".to_owned()],
         start: DateTime::now(),
+        // start: DateTime::now().to_string(),
         exp: None,
     };
 
