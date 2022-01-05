@@ -6,3 +6,6 @@
 /client/dist/
 
 .env
+
+/.trunk
+.markdownlint.yaml
