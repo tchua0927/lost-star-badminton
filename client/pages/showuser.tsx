@@ -25,7 +25,7 @@ export default function ShowUser() {
         console.log(userData.membership);
     }
     
-    
+    // TODO: Make  functions that will extract the optional data
 
     return (
         <div className="showuser">
