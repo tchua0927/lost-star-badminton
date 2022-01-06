@@ -35,36 +35,38 @@ export default function ShowUser() {
 
             <div className="user-container"> 
 
-            {/* TODO: WORK ON CONTROL FLOW */}
-                {/* <h5 className="info-item">{userData.fname}</h5> */}
-                {/* <h5 className="info-item">{userData.lname}</h5> */}
                 {userData.fname} 
                 <br />
                 {userData.lname}
                 <br />
-                {/* {userData.username && <h5 className="info-item">{userData.username}</h5>} */}
                 {userData.username && userData.username}
                 <br />
                 {
                     userData.contact && 
-                    (userData.contact.email &&
                     (
-                        userData.contact.phone &&
-                        userData.contact.phone
-                    )
+                        userData.contact.email &&
+                        (
+                            userData.contact.phone &&
+                            userData.contact.phone
+                        )
                     )
                     // Object.keys(userData.contact).map((key,i) => (
                     //     userData.contact[key] &&
                     //     // <h5 className="info-item" key={i}>{userData.contact[key]}</h5>
                     // ))
                 }
+                <br />
                 {
                     userData.membership &&
-                    
-                    <h5 className="info-item" >{
+                    (
                         userData.membership.id
-                        } <br />
-                        {userData.membership.location[0]}</h5>
+                    ) 
+                    && 
+                    (
+                        userData.membership.location
+
+                    )
+
                     
                 }
                 {/* {

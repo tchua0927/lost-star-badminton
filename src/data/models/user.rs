@@ -1,13 +1,14 @@
-
+use djangohashers::{check_password, make_password};
+use mongodb::bson::DateTime;
 use serde::{Deserialize, Serialize};
-use mongodb::{bson::DateTime};
-use djangohashers::{ check_password,make_password};
+
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Contact {
     pub email: String,
     pub phone: Option<String>,
 }
+
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Membership {
@@ -28,7 +29,6 @@ pub struct User {
     pub username: Option<String>,
     // pub phone: Option<String>,
     pub membership: Option<Membership>,
-    
 }
 
 impl User {
@@ -37,11 +37,9 @@ impl User {
         password: String,
         fname: String,
         lname: String,
-        username: Option<String>,
-        membership: Option<Membership>
-
+        username: Option<String>, 
+        membership: Option<Membership>,
     ) -> Self {
-
         let hashed_pwd = make_password(password.as_str());
         User {
             contact: contact,
@@ -53,5 +51,4 @@ impl User {
             membership: membership,
         }
     }
-    
 }

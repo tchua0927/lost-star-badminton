@@ -1,5 +1,3 @@
-
-
-pub mod user;
-pub mod location;
 pub mod court;
+pub mod location;
+pub mod user;
