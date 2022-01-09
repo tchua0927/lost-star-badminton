@@ -39,6 +39,7 @@ async fn dummy_api(req : HttpRequest) -> Result<Json<User>, errors::UserError> {
         "foo".to_owned(),
         "bar".to_owned(),
         Some("foobar123".to_owned()),
+        // None,
         Some(dummy_membership),
 
     );
