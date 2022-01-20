@@ -32,7 +32,7 @@ async fn dummy_api(req : HttpRequest) -> Result<Json<User>, errors::UserError> {
         exp: None,
     };
 
-
+//1642643897163
     let dummy_user = User::new(
         dummy_contact,
         "password".to_owned(),
@@ -43,6 +43,8 @@ async fn dummy_api(req : HttpRequest) -> Result<Json<User>, errors::UserError> {
         Some(dummy_membership),
 
     );
+
+    println!("{:?}", dummy_user.membership);
     Ok(Json(dummy_user))
 
 }

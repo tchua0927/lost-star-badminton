@@ -12,12 +12,12 @@ export default function ShowUser() {
 
     const [userData, setUserData] = useState([]);
     const [done, setDone] = useState(undefined);
+    
 
     const getUser  = async () => { 
         const response = await axiod.get(url);
-        const json_dat = await response.data;
-        // setUserData(response.data)
-        setUserData(json_dat);
+        
+        setUserData(response.data);
         setDone(true);
     };
 
@@ -25,14 +25,17 @@ export default function ShowUser() {
         getUser();
     }, []);
 
-    
+
+        
     // TODO: Make  functions that will extract the optional data
 
     return !done?("Loading..."):(
+        
         <div className="showuser">
             <header className="showuser-header">
                 <h2>User Data</h2>
             </header>
+        
         <User user={userData}/>
         {/* <User.Name fname={userData.fname} lname={userData.lname}/> */}
         </div>
