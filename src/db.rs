@@ -8,6 +8,8 @@ pub async fn connect() -> Client {
     let url = dotenv::var("DATABASE_URL")
         .unwrap_or_else(|_| "mongodb:://localhost:27017".into());
 
+    println!("{:?}", url);
+
     // let client = Client::with_uri_str(url).await.expect("Error connecting to MongoDB client");
     Client::with_uri_str(url).await.expect("Error connecting to MongoDB client")
     

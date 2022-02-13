@@ -54,7 +54,7 @@ async fn main()  -> std::io::Result<()>{
     dotenv::dotenv().ok();
     std::env::set_var("RUST_LOG", "rsvp=debug");
 
-    let client = db::connect().await;
+    // let client = db::connect().await;
 
     println!("Listening on port 8080");
     // println!("Listening on port 3000");
@@ -62,7 +62,7 @@ async fn main()  -> std::io::Result<()>{
         App::new() 
         .wrap(Logger::default())
         .wrap(Cors::permissive())
-        .data(client.clone())
+        // .data(client.clone())
         .service(hello)
         .service(
             web::scope("/api").route(
