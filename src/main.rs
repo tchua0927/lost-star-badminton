@@ -1,4 +1,4 @@
-mod data;
+mod models;
 mod db;
 mod service;
 mod errors;
@@ -10,7 +10,7 @@ use actix_web::{web, web::Json,App,HttpResponse, HttpServer, Responder, get, mid
 use mongodb::bson::DateTime;
 
 
-use data::models::user::{User,Contact,Membership};
+use models::user::{User,Contact,Membership};
 
 #[get("/")]
 async fn hello() -> impl Responder {

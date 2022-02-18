@@ -2,7 +2,7 @@
 use serde::{Deserialize, Serialize};
 use mongodb::bson::DateTime;
 
-use crate::data::models::court::Court;
+use crate::models::court::Court;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub enum Weekday {
